@@ -1,0 +1,15 @@
+node_modules
+
+*.env
+*.env.*
+!.env.example
+
+# Claude Code
+.claude/
+.claude*
+CLAUDE.md
+CLAUDE.local.md
+.mcp.json
+
+# macOS
+.DS_Store

@@ -20,6 +20,13 @@ export async function findAllPosts() {
   return rows.map(mapRowToPost)
 }
 
+export async function findAllPublishedAndApprovedPosts() {
+  const { rows } = await pool.query(
+    'SELECT id, title, content, published_at, approved_at, rejected_at, created_at FROM posts WHERE published_at IS NOT NULL AND approved_at IS NOT NULL AND rejected_at IS NULL ORDER BY published_at DESC'
+  )
+  return rows.map(mapRowToPost)
+}
+
 export async function findById(id) {
   const { rows } = await pool.query(
     'SELECT id, title, content, published_at, approved_at, rejected_at, created_at FROM posts WHERE id = $1',
@@ -40,6 +47,24 @@ export async function insertPost(post) {
       post.rejectedAt,
       post.createdAt,
     ]
+  )
+  return mapRowToPost(rows[0])
+}
+
+export async function approvePostById(id) {
+  const now = new Date().toISOString()
+  const { rows } = await pool.query(
+    'UPDATE posts SET approved_at = $1, published_at = $1, rejected_at = NULL WHERE id = $2 RETURNING *',
+    [now, id]
+  )
+  return mapRowToPost(rows[0])
+}
+
+export async function rejectPostById(id) {
+  const now = new Date().toISOString()
+  const { rows } = await pool.query(
+    'UPDATE posts SET rejected_at = $1, published_at = NULL, approved_at = NULL WHERE id = $2 RETURNING *',
+    [now, id]
   )
   return mapRowToPost(rows[0])
 }

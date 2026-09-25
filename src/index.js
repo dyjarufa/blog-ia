@@ -1,7 +1,7 @@
 import http from 'node:http'
 
 import { createPostDraft } from './services/create-post-draft.js'
-import { findAllPosts, insertPost } from './repositories/post-repository.js'
+import { findAllPosts, findById, insertPost } from './repositories/post-repository.js'
 
 const API_HOST = process.env.API_HOST
 const API_PORT = process.env.API_PORT
@@ -18,6 +18,19 @@ const server = http.createServer(async (req, res) => {
       const posts = await findAllPosts()
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
       return res.end(JSON.stringify({ data: posts }))
+    } catch (error) {
+      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' })
+      return res.end(JSON.stringify({ message: error.message }))
+    }
+  }
+
+  const postByIdMatch = path.match(/^\/posts\/(\d+)$/)
+  if (postByIdMatch && method === 'GET') {
+    try {
+      const id = postByIdMatch[1]
+      const post = await findById(id)
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
+      return res.end(JSON.stringify({ data: post }))
     } catch (error) {
       res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' })
       return res.end(JSON.stringify({ message: error.message }))

@@ -20,6 +20,14 @@ export async function findAllPosts() {
   return rows.map(mapRowToPost)
 }
 
+export async function findById(id) {
+  const { rows } = await pool.query(
+    'SELECT id, title, content, published_at, approved_at, rejected_at, created_at FROM posts WHERE id = $1',
+    [id]
+  )
+  return mapRowToPost(rows[0])
+}
+
 export async function insertPost(post) {
   const { rows } = await pool.query(
     'INSERT INTO posts (id, title, content, published_at, approved_at, rejected_at, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',

@@ -13,5 +13,5 @@ Based on the idea provided by the user, you must create:
 
 The content must be informative and well structured, using headings, paragraphs and
 lists whenever appropriate. Write in the same language as the idea provided by the user.`,
-  model: 'openai/gpt-4o-mini',
+  model: 'anthropic/claude-3-5-sonnet-20241022',
 })

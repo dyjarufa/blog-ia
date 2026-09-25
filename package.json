@@ -8,7 +8,18 @@
     "infra:down": "docker compose down",
     "migrate:up": "postgres migrate up",
     "migrate:down": "postgres migrate zero",
-    "local:setup": "npm run env:setup && npm run infra:up && npm run migrate:up"
+    "local:setup": "npm run env:setup && npm run infra:up && npm run migrate:up",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "prepare": "lefthook install"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "license": "ISC",
   "type": "module",
@@ -18,5 +29,14 @@
     "pg": "^8.23.0",
     "postgres": "^3.4.9",
     "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^20.5.3",
+    "@eslint/js": "^10.0.1",
+    "commitlint": "^20.5.3",
+    "eslint": "^10.11.0",
+    "lefthook": "^2.1.14",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.9.9"
   }
 }

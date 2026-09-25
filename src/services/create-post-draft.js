@@ -14,7 +14,7 @@ export async function createPostDraft(idea) {
 
   const { object } = await agent.generate(
     `Create a complete blog post based on the following idea:\n\n${idea}`,
-    { structuredOutput: { schema: postDraftSchema } },
+    { structuredOutput: { schema: postDraftSchema } }
   )
 
   return {

@@ -13,6 +13,13 @@ function mapRowToPost(row) {
   }
 }
 
+export async function findAll() {
+  const { rows } = await pool.query(
+    'SELECT id, title, content, published_at, approved_at, rejected_at, created_at FROM posts ORDER BY created_at DESC'
+  )
+  return rows.map(mapRowToPost)
+}
+
 export async function findAllPosts() {
   const { rows } = await pool.query(
     'SELECT id, title, content, published_at, approved_at, rejected_at, created_at FROM posts ORDER BY published_at DESC'

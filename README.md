@@ -2,6 +2,8 @@
 
 A modern, scalable Node.js REST API for managing blog posts with AI-powered content generation. Built with PostgreSQL persistence, Docker containerization, and production-ready developer tooling.
 
+**Author:** Jady Rufino
+
 ## 🎯 Project Overview
 
 This API provides a complete workflow for creating, managing, and publishing blog posts:
@@ -951,14 +953,6 @@ colima stop
 ## 📄 License
 
 ISC License — See LICENSE file for details.
-
----
-
-## 👨‍💻 Author
-
-Created by Rocketseat for educational purposes. Course: Node.js com IA (Blog API).
-
-**Repository**: [blog-ia](https://github.com/rocketseat/blog-ia)
 
 ---
 

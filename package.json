@@ -13,6 +13,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
+    "build": "docker build -t blog-api .",
     "prepare": "lefthook install"
   },
   "lint-staged": {

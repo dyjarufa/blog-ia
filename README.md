@@ -113,6 +113,28 @@ curl http://localhost:8080/posts?include=all \
 
 ---
 
+## 📚 API Documentation (Swagger/OpenAPI)
+
+**Interactive API documentation available at:**
+
+- **UI**: `http://localhost:8080/api/docs` — Swagger UI with "Try it out" functionality
+- **JSON Schema**: `http://localhost:8080/api/docs/json` — OpenAPI 3.0 JSON for tools/LLMs
+
+The Swagger UI allows you to:
+- ✅ Browse all endpoints with detailed descriptions
+- ✅ View request/response schemas
+- ✅ Test endpoints directly from the browser
+- ✅ See authentication requirements
+- ✅ Review error responses
+
+The JSON schema can be used with:
+- 📋 Documentation generators
+- 🤖 LLMs/AI agents for API integration
+- 🔧 Code generation tools
+- 📱 API client generators
+
+---
+
 ## 🔐 Authentication
 
 All admin endpoints require an API key in the Authorization header:

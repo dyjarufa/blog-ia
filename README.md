@@ -166,9 +166,8 @@ CREATE TABLE posts (
   node --version  # Should be >= 22.0.0
   ```
 - **npm**: v10+ (comes with Node.js)
-- **Docker**: For containerized database (via Colima on macOS Bayer)
+- **Docker**: For containerized database
   ```bash
-  colima start  # Start Docker daemon (macOS)
   docker --version
   ```
 - **PostgreSQL CLI**: For migrations
@@ -933,19 +932,6 @@ ls migrations/
 
 # Reapply
 npm run migrate:up
-```
-
-### Docker on macOS (Bayer)
-
-```bash
-# Start Colima (Docker alternative for M1/Intel Macs)
-colima start
-
-# Verify Docker is running
-docker ps
-
-# Stop when done
-colima stop
 ```
 
 ---

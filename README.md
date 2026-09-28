@@ -258,34 +258,6 @@ docker run -p 8080:8080 \
 
 ---
 
-## 📚 Available Scripts
-
-```bash
-# Development
-npm run dev              # Start server with auto-reload (nodemon-like)
-
-# Database
-npm run infra:up         # Start PostgreSQL in Docker
-npm run infra:down       # Stop PostgreSQL container
-npm run migrate:up       # Apply pending migrations
-npm run migrate:down     # Rollback all migrations (zero)
-npm run local:setup      # One-command: env + infra + migrations
-
-# Code Quality
-npm run lint             # Check code with ESLint
-npm run lint:fix         # Auto-fix ESLint errors
-npm run format           # Format code with Prettier
-npm run format:check     # Check formatting (CI mode)
-
-# Build & Deployment
-npm run build            # Build Docker image (tag: blog-api)
-
-# Git Hooks
-npm run prepare          # Install git hooks (auto-run on npm install)
-```
-
----
-
 ## 🔌 API Endpoints
 
 ### 1. List Posts
@@ -873,25 +845,6 @@ git commit -m "feat: implement new feature"
 2. Make changes (auto-formatted by pre-commit hook)
 3. Commit with conventional message: `git commit -m "feat: description"`
 4. Push and create PR
-
----
-
-## 📦 Dependencies Overview
-
-| Package | Version | Purpose |
-|---------|---------|---------|
-| `pg` | 8.23.0 | PostgreSQL client driver |
-| `postgres` | 3.4.9 | Migration CLI tool |
-| `@mastra/core` | 0.24.9 | AI framework (Claude integration) |
-| `nanoid` | 5.1.16 | Unique ID generation |
-| `zod` | 3.25.76 | Schema validation |
-
-**Dev Dependencies:**
-- `eslint` (v10) + `@eslint/js` — Code linting
-- `prettier` (v3.9.9) — Code formatting
-- `commitlint` + `@commitlint/config-conventional` — Commit validation
-- `lefthook` (v2.1.14) — Git hooks manager
-- `lint-staged` (v16.4.0) — Pre-commit linting
 
 ---
 
